@@ -35,6 +35,16 @@ export const getStaticProps = async ({ params }) => {
     "fields.slug": params.slug,
   });
 
+  // redirect if item does not exist
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   // return the item to inject
   return {
     props: { recipe: items[0] },
