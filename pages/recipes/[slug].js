@@ -38,6 +38,7 @@ export const getStaticProps = async ({ params }) => {
   // return the item to inject
   return {
     props: { recipe: items[0] },
+    revalidate: 1,
   };
 };
 
